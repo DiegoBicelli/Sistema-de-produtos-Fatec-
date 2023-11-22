@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS PowerStar;
+/*DROP DATABASE IF EXISTS PowerStar;
 CREATE DATABASE PowerStar;
 USE PowerStar;
 
@@ -46,4 +46,14 @@ BEGIN
     JOIN perfil_permissoes pp ON perm.id = pp.permissao_id
     WHERE pp.perfilid = perfilId;
 END ;;
+*/
 
+USE PowerStar;
+
+CREATE TABLE produtos (
+    produtoId INT NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(255) NOT NULL,
+    preco float,
+    quantidade VARCHAR(255),
+    CONSTRAINT perfilid PRIMARY KEY (produtoId, Nome)
+);

@@ -1,0 +1,59 @@
+body {
+    background-color: #1D232A; /* Fundo escuro */
+    color: #fff; /* Texto branco */
+    font-family: 'Arial', sans-serif;
+}
+
+.card {
+    background-color: #1D232A; /* Azul escuro */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 50px auto;
+    max-width: 1100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+a {
+    color: #F87171; /* Vermelho */
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h3 {
+    color: #F87171; /* Vermelho */
+   font-size: 40px;
+}   
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px; /* Ajustado o padding para 10px */
+    margin-bottom: 15px;
+    box-sizing: border-box; /* Evita que o padding afete a largura total */
+}
+
+button {
+    background-color: #F87171; /* Vermelho */
+    color: #fff; /* Texto branco */
+    padding: 12px 15px; /* Ajustado o padding para 12px */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #CC4C4C; /* Vermelho mais escuro */
+}

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async function() {
+document.getElementById('botaobuscar').addEventListener('click', function(event){
     
   const urlBase="http://localhost:8089/"
   async function buscaUsers() {

@@ -12,7 +12,7 @@ class Usuario
 
     public function __construct()
     {
-       
+        $this->perfilid = 0;
     }
     public function getId(): int
     {

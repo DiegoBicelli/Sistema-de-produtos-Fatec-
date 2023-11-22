@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>ProvaWeb</title>
+    
+</head>
+<header>
+    
+</header>
+<body>
+    <div id="login">
+        <div class="card">
+    <form>
+        <h3>Cadastrar Produtos</h3>
+        <label for="">Nome: </label> <br>
+        <input type="text" id="nome" name="nome">
+        <br>
+        <label for="">Preco: </label> <br>
+        <input type="value" id="preco" name="preco">
+        <br>
+        <label for="">Quantidade: </label> <br>
+        <input type="number" id="QTD" name="QTD">
+        <br>
+        <input type="submit" value="Submit" id="submitButton">
+    </form>
+</div>
+    <form>
+        <div class="card">
+        <h3>Atualizar Produto</h3>
+        <label for="updatePid">Id</label> <br>
+        <input id="updatePid" type="number" >
+        <br>
+        <label for="nomePupdate">Nome</label> <br>
+        <input id="nomePupdate" type="text" >
+        <br>
+        <label for="PrecoUpdate">Preco</label> <br>
+        <input id="PrecoUpdate" type="number" class="validate">
+        <br>
+        <label for="qtdUpdate">Quantidde</label> <br>
+        <input id="qtdUpdate" type="number" >
+        <br>
+        <input type="button" id="UpdatePButton" value="Atualizar Usuário">
+    </form>
+</div>
+    <form>
+        <div class="card">
+        <h3>Excluir Produto</h3>
+        <label for="deletePid">Id</label> <br>
+        <input id="deletePid" type="number" name ="deletePid" >
+        <br>
+        <input type="submit" id="DeleteButton" value="Deletar produto">
+        </div>
+    </form>
+    <br>
+    <a href="index.html">Voltar para tela principal</a>
+
+    </div>
+    <script src="js/createProd.js"></script>
+    <script src="js/deleteProd.js"></script>
+    <script src="js/updateProd.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

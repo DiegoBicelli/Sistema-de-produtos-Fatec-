@@ -128,25 +128,35 @@ $permitido = new PermissaoController();
             $usuario->setNome($body['nome']);
             $usuario->setEmail($body['email']);
             $usuario->setSenha($body['senha']);
-            $usuario->setPerfilId(2);
+            
             $usuariosController = new UsuarioController($usuario);
             $resultado = $usuariosController->adicionarUsuario();
             echo json_encode(['status' => $resultado]);
         });
     });
-    $router->get('/Perfil', function () {
-        $permitido = new PermissaoController();
-        $permitido->autorizado();
-        $controller = new PerfilPermissaoController();
-            $resultado = $controller->listarTodos();
-            if (!$resultado) {
-                echo json_encode(["status" => false, "mensagem" => "Nenhum perfil encontrado"]);
-                exit;
-            } else {
-                echo json_encode($resultado);
-                exit;
-            }     
+    $router->post('/Registrar', function () {
+        $body = json_decode(file_get_contents('php://input'), true);
+    
+        // Verifique se o ID do perfil está presente no corpo da solicitação
+        if (!isset($body['perfil_id'])) {
+            // Se não estiver presente, pode tratar isso de acordo com sua lógica de aplicativo
+            echo json_encode(['status' => 'Erro: Perfil ID não fornecido']);
+            return;
+        }
+    
+        $usuario = new Usuario();
+        $usuario->setNome($body['nome']);
+        $usuario->setEmail($body['email']);
+        $usuario->setSenha($body['senha']);
+        $usuario->setPerfilId($body['perfil_id']); // Use o ID do perfil fornecido no corpo da solicitação
+    
+        $usuariosController = new UsuarioController($usuario);
+        $resultado = $usuariosController->adicionarUsuario();
+    
+        // Se desejar, você pode retornar o ID gerado pelo MySQL após a inserção
+        echo json_encode(['status' => $resultado, 'usuario_id' => $usuario->getId()]);
     });
+
     // Todos metodos Permissao
     $router->mount('/Permissao', function () use ($router) {
         $router->get('/', function () {

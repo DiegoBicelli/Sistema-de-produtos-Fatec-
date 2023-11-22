@@ -15,31 +15,38 @@ class Crud extends Connection{
     public function getLastInsertId() {
         return $this->conn->lastInsertId();
     }
-    public function insert($object) {
+    public function insert($object)
+    {
         $reflectionClass = new \ReflectionClass($object);
-        $properties = $reflectionClass->getProperties(ReflectionProperty::IS_PRIVATE);
-        $table=$reflectionClass->getShortName();
+        $properties = $reflectionClass->getProperties(\ReflectionProperty::IS_PRIVATE);
+        $table = $reflectionClass->getShortName();
         $data = [];
+
         foreach ($properties as $property) {
-            $property->setAccessible(true); 
-            if ($property->getName() === 'id') { 
+            $property->setAccessible(true);
+
+            // Pule a propriedade 'id' para permitir que o banco de dados a gerencie automaticamente
+            if ($property->getName() === 'id') {
                 continue;
             }
+
             $data[$property->getName()] = $property->getValue($object);
         }
+
         $columns = implode(", ", array_keys($data));
         $placeholders = ":" . implode(", :", array_keys($data));
+
         $query = "INSERT INTO $table ($columns) VALUES ($placeholders)";
+
         $stmt = $this->conn->prepare($query);
+
         foreach ($data as $key => $value) {
-            if ($key === 'perfilid') {
-                $stmt->bindValue(":$key", $value); 
-            } else {
-                $stmt->bindValue(":$key", $value); 
-            }
+            $stmt->bindValue(":$key", $value);
         }
+
         return $stmt->execute();
     }
+
     public function select($object, $conditions = []) {
         $reflectionClass = new \ReflectionClass($object);
         $table=$reflectionClass->getShortName();
