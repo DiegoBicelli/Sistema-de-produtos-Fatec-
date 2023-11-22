@@ -1,42 +1,70 @@
 <?php
 
 namespace App\Controller;
+use App\Model\Usuario;
 
-use App\Model\Perfil;
-use App\Model\Permissao;
-use App\Database\Crud;
+class PermissaoController {
 
-class PerfilPermissaoController extends Crud
-{
-    public function __construct(){
-        parent::__construct();
+    private $ips_permitidos;
+    private $origesPermitidas;
+    public function __construct() {
+        $this->ips_permitidos = ['::1', '123.123.123.124'];
+        $this->origesPermitidas= ['http://localhost:8080','http://localhost:5500','http://192.168.56.1'];
+        
     }
-    public function adicionarPermissao(Perfil $perfil, $permissao){
-        $resultado=$this->listarPermissao($permissao);
-        if(!$resultado){
-            $this->cadPermissao($permissao);
-            return $this->associar($perfil->getId(), $this->getLastInsertId());
-        }else{
-            return $this->associar($perfil->getId(), $resultado[0]['id']);
+    public function autorizado(){
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Origin: * ');
+        header('Access-Control-Allow-Methods: OPTIONS, GET, POST, PUT, DELETE');
+        header('Access-Control-Allow-Headers: Content-Type');
+        header('Cache-Control: no-cache, no-store, must-revalidate');
+        //$this->verOrigem();
+        $this->verIP();
+        $this->Token();
+    }
+    public function verOrigem(){
+        if(!in_array($_SERVER['HTTP_ORIGIN'], $this->origesPermitidas)){
+            echo json_encode(['status'=>false,'mensagem' => 'Acesso não autorizado origem'], 403);
+            exit;
         }
     }
-    public function removerPermissao(Perfil $perfil, $permissao){
-        $resultado=$this->listarPermissao($permissao);
-        return $this->desassociar($perfil->getId(), $resultado[0]['id']);
+    public function verIP(){
+        if (!in_array($_SERVER['REMOTE_ADDR'], $this->ips_permitidos)) {
+            echo json_encode(['status'=>false,'mensagem' => 'Acesso não autorizado ip'], 403);
+            exit;
+        }
     }
-
-    public function obterPermissoesDoPerfil(Perfil $perfil){
-        return $this->selectPermissoesPorPerfil($perfil->getId());
+    public function Token(){
+        $usuario = new Usuario();
+        $headers = getallheaders();
+        if(!isset($headers['Authorization'])) {
+            echo json_encode(['status' => false, 'message' => "sem token"]);
+            exit;
+        }
+        $token = $headers['Authorization'] ?? null;
+        $usuariosController = new UsuarioController($usuario);
+        $validationResponse = $usuariosController->validarToken($token);
+        if ($token === null || !$validationResponse['status']) {
+            echo json_encode(['status' => false, 'message' => $validationResponse['message']]);
+            exit;
+        }
+        
     }
-
-    public function obterPerfisDaPermissao(Permissao $permissao){
-        return $this->listarPerfisPorPermissao($permissao->getId());
+    public function verToken(){
+        $usuario = new Usuario();
+        $headers = getallheaders();
+        if(!isset($headers['Authorization'])) {
+            echo json_encode(['status' => false, 'message' => "sem token"]);
+            exit;
+        }
+        $token = $headers['Authorization'] ?? null;
+        $usuariosController = new UsuarioController($usuario);
+        $validationResponse = $usuariosController->validarToken($token);
+        if ($token === null || !$validationResponse['status']) {
+            echo json_encode(['status' => false, 'message' => $validationResponse['message']]);
+            exit;
+        }
+        echo json_encode(['status' => true, 'message' => 'Token válido','telas'=>$validationResponse['telas']]);
+        exit;
     }
-    public function listarTodos(){
-        return $this->listarTodosOsPerfis();
-    }
-    public function listarPermissoes(){
-        return $this->listarTodasPermissoes();
-    }
-
 }

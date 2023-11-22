@@ -67,7 +67,6 @@ class Crud extends Connection{
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    /
     public function update($object, $conditions) {
         $reflectionClass = new \ReflectionClass($object);
         $properties = $reflectionClass->getProperties(ReflectionProperty::IS_PRIVATE);

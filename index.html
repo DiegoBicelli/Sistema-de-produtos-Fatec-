@@ -1,64 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-  <title>Permissoes</title>
-  <link rel="stylesheet" href="css/w3.css">
-  <link rel="stylesheet" href="css/styleaTime.css">
-  <script src="js/token.js"></script>
-</head>
-<body>
-  <div class="w3-bar w3-black" id="myDIV">
-    <a class="w3-bar-item active w3-button" href="index.html" data-tela="index">ADM</a>
-    <a class="w3-bar-item  w3-button" href="projetos.html" data-tela="projetos">Projetos</a>
-    <a class="w3-bar-item  w3-button" href="pessoas.html" data-tela="pessoas">Equipe</a>
-  </div>
-  <div class="w3-container w3-display-middle">
-    <div class="w3-row-padding">
-          <div class="w3-card-4 w3-container w3-margin-bottom">
-            <h2>Perfis</h2>
-            <ul id="perfilList"></ul>
-          </div>
-    
-          <div class="w3-card-4 w3-container w3-margin-bottom">
-            <h2>Gerenciar Permissões</h2>
-            <label for="perfilSelect">Perfil:</label>
-            <select id="perfilSelect" required>
-              <option value="">Selecione</option>
-            </select>
-            <br>
-            <label for="permissaoSelect">Permissão:</label>
-            <select id="permissaoSelect" required>
-                <option value="">Selecione</option>
-            </select>
-
-            <button id="addPermissaoBtn" class="w3-button w3-round w3-border w3-border-blue">Adicionar Permissão</button>
-          </div>
-       
-  <div class="w3-card-4 w3-container w3-margin-bottom">
-    <ul id="permissoesList" class="w3-ul"></ul>
-  </div>
-</div>
-</div>
-
-
-    <div id="id02" class="w3-modal">
-      <div class="w3-modal-content w3-animate-zoom w3-card-4">
-        <header class="w3-container w3-teal"> 
-          <span onclick="document.getElementById('id02').style.display='none'" 
-          class="w3-button w3-display-topright">&times;</span>
-          <h4>System X</h4>
-        </header>
-        <div class="w3-container">
-          <p id="mensagem"></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.4.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="/css/produtos.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>PowerStar</title>
+  </head>
+  <body>
+    <nav
+  id="navbar_init_main"
+  class="navbar sticky top-10 z-50 border-b-2 border-base-300 bg-base-100 p-2 text-neutral-content shadow-md transition-all"
+  style="top: 0px"
+>
+  <section class="navbar-start">
+  </section>
+  <section class="navbar-end">
+    <a
+      id="loginBotao"
+      href="/login.html"
+      class="btn btn-primary hidden border-b-4 border-primary-focus text-primary-content sm:btn-md hover:border-primary-focus hover:bg-primary-focus lg:flex"
+    >
+      Login 
+    </a>
+  </section>
+  </nav>
+    <div
+      class="hero"
+      style="min-height: 80vh; background-image: url(
+https://www.leetdesk.com/_next/image?url=https%3A%2F%2Fimages.prismic.io%2Fleetdesk%2Fc5527f47-def9-433c-9cce-23f286dbfea2_Front.jpg%3Fauto%3Dcompress%2Cformat%26rect%3D0%2C374%2C4000%2C2250%26w%3D1920%26h%3D1080&w=3840&q=75
+)"
+    >
+      <div class="hero-overlay bg-opacity-70 backdrop-blur-sm"></div>
+      <div class="hero-content text-center text-white">
+        <div class="max-w-xl">
+          <h1 class="mb-5 mt-16 text-2xl font-bold lg:mt-10 lg:text-4xl">
+            A <span class="text-red-400">POWERSTAR</span> Oferece os Melhores Perfiféricos para sua Jogatina</h1>
+          <p class="text-md mb-5 lg:text-lg">
+            A estrela te guiara até a vitoria 
+          </p>
+          <a
+            href="#produtos"
+            class="btn btn-secondary m-3 border-b-4 border-secondary-focus text-secondary-content sm:btn-md xl:btn-lg hover:border-secondary-focus"
+            >Veja Nossos Produtos</a>
+          <a
+            href="#contato"
+            class="btn btn-primary m-3 border-b-4 border-primary-focus text-white sm:btn-md xl:btn-lg hover:border-primary-focus hover:bg-primary-focus"
+            >Contato
+          </a>
         </div>
-        <footer class="w3-container w3-teal">
-          <p>Modal Footer</p>
-        </footer>
       </div>
     </div>
-    <script src="js/gerenciar.js"></script>
-</body>
+    <section id="produtos_showcase">
+      <div class="flex flex-row">
+        <div class="card w-96 bg-neutral-100 shadow-xl text-black m-3 p-3">
+          <figure>
+            <img src="/imagens/1.png" alt="teclado gamer" class="imagens">
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">
+              Teclado Mecanico 1
+            </h2>
+            <p>O primeiro de todos?</p>
+          </div>
+        </div>
+        <div class="card w-96 bg-neutral-100 shadow-xl text-black m-3 p-3">
+          <figure>
+            <img src="/imagens/images.jpg" alt="teclamo gamer">
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Teclado Mecanico</h2>
+            <p>apenas o segundo</p>
+            </div>
+          </div> 
+        </div>
+            </div>
+    </section>
+  </body>
 </html>

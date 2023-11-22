@@ -25,6 +25,10 @@ class PerfilPermissaoController extends Crud
         return $this->desassociar($perfil->getId(), $resultado[0]['id']);
     }
 
+    public function obterPermissoesDoPerfil(Perfil $perfil){
+        return $this->selectPermissoesPorPerfil($perfil->getId());
+    }
+
     public function obterPerfisDaPermissao(Permissao $permissao){
         return $this->listarPerfisPorPermissao($permissao->getId());
     }

@@ -54,9 +54,6 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                     exit;
                 }
             }
-            break;
-        
-
     case "DELETE":
         $perfil->setId($perfilId);
         $resultado = $controller->removerPermissao($perfil, $body['nome']);
