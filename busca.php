@@ -62,7 +62,7 @@ $conn->close();
 
     <div class="card">
         <a href="../">Voltar</a>
-        
+
         <h3>Buscar Usuário</h3>
         <form action="busca.php" method="GET">
             <label for="nome_usuario">Nome do usuário:</label>

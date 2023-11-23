@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'ba5125d49594127649ea41b101cbdf4599fa7fab',
+        'reference' => '5b6dc585e72352e4f7eb5b3a3afa733f1b87d889',
         'name' => 'flash/login',
         'dev' => true,
     ),
@@ -34,7 +34,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'ba5125d49594127649ea41b101cbdf4599fa7fab',
+            'reference' => '5b6dc585e72352e4f7eb5b3a3afa733f1b87d889',
             'dev_requirement' => false,
         ),
         'phpmailer/phpmailer' => array(

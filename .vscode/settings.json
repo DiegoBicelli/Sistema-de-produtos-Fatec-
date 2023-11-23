@@ -13,6 +13,20 @@
             "database": "mysql",
             "username": "root",
             "password": "12345digaz"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "172.17.239.20",
+            "port": 3306,
+            "driver": "MySQL",
+            "password": "12345digaz",
+            "username": "root",
+            "database": "PowerStar",
+            "name": "PowerStar"
         }
     ]
 }
