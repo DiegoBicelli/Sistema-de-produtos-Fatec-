@@ -1,4 +1,4 @@
-/*
+
 DROP TABLE IF EXISTS `perfil_permissoes`;
 DROP TABLE IF EXISTS `permissoes`;
 DROP TABLE IF EXISTS `perfil`;
@@ -52,7 +52,7 @@ BEGIN
     JOIN perfil_permissoes pp ON perm.id = pp.permissao_id
     WHERE pp.perfilid = perfilId;
 END;
-*/
+
 
 
 
