@@ -18,7 +18,7 @@ Conexão feita apartir do banco.sql usando o sqlTools no Vscode
 - HTML.
 - CSS - Biblioteca tailwind usada para auxiliar em algumas paginas do site.
 
-## Instrucoes de Instalacao no Windows
+## Instruções de Instalacão no Windows
 
 Utiliza-se a tecnologia Docker neste projeto, entao sera necessario acesso ao recurso WSL2 do Windows 10+.
 
